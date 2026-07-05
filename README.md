@@ -31,15 +31,15 @@ beaker, measures the sludge interface every minute, and reports it. This platfor
 
 ```
   FIELD UNIT (Raspberry Pi)                  CLOUD (single 2 GB EC2)
-  ┌────────────────────────┐                 ┌────────────────────────────────┐
-  │  Camera → YOLO model    │  MQTT / TLS     │   ingest.py ──► SQLite          │
-  │  main.py ──────────────┼─────────────────┼──► (telemetry)   flocdash.db    │
-  │  Node-RED              │  HTTP multipart  │   image_service.py ──► S3       │
-  │      └─────────────────┼─────────────────┼──► (snapshots)    ▲             │
-  │                        │                 │   app.py (Flask) ─┘  dashboard  │
-  └────────────────────────┘                 │   + SSE live updates  :5000     │
-                              browser ◄───────┼─── presigned S3 image URLs      │
-                                              └────────────────────────────────┘
+  ┌────────────────────────┐                  ┌────────────────────────────────┐
+  │  Camera → CV model     │  MQTT / TLS      │   ingest.py ──► SQLite         │
+  │  main.py ──────────────┼───────────────── ┼──► (telemetry)   flocdash.db   │
+  │  Node-RED              │  HTTP multipart  │   image_service.py ──► S3      │
+  │      └─────────────────┼───────────────── ┼──► (snapshots)    ▲            │
+  │                        │                  │   app.py (Flask) ─┘  dashboard │
+  └────────────────────────┘                  │   + SSE live updates  :5000    │
+                              browser ◄───────┼─── presigned S3 image URLs     │
+                                              └───────────────────────────────┘
 ```
 
 **Three decoupled Python services**, each ~30 MB, sharing one SQLite database:

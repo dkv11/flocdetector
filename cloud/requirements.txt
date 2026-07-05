@@ -1,0 +1,5 @@
+flask
+paho-mqtt
+boto3
+werkzeug
+requests

@@ -1,0 +1,41 @@
+# ---- Secrets & credentials (NEVER commit) ----
+.env
+.env.s3
+*.pem
+*.key
+*.crt
+certs/
+credentials*
+
+# ---- Database & data ----
+*.db
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite3
+*.jsonl
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.Python
+
+# ---- Logs ----
+*.log
+logs/
+.pm2/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# ---- Node (if any tooling) ----
+node_modules/
